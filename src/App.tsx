@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import { Tache } from './components/Tache/tache' 
+import { TodoList } from './components/Todo_list/todolist'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <Tache name="steven"/>
+      <TodoList listTaches={["steven", "alice", "bob"]} />
     </>
   )
 }
