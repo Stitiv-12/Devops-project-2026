@@ -1,10 +1,10 @@
-import { Component } from "react";
-import "./todolist.css";
-import { Tache } from "../Tache/tache";
+import { Component } from 'react'
+import './todolist.css'
+import { Tache } from '../Tache/tache'
 
 type TodoListProps = {
-  listTaches: string[];
-};
+  listTaches: string[]
+}
 
 export class TodoList extends Component<TodoListProps> {
   render() {
@@ -14,6 +14,6 @@ export class TodoList extends Component<TodoListProps> {
           <Tache key={index} name={tache} />
         ))}
       </div>
-    );
+    )
   }
 }

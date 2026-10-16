@@ -1,9 +1,9 @@
-import { Component } from "react";
-import "./tache.css";
+import { Component } from 'react'
+import './tache.css'
 
 type TacheProps = {
-  name: string;
-};
+  name: string
+}
 
 export class Tache extends Component<TacheProps> {
   render() {
@@ -12,6 +12,6 @@ export class Tache extends Component<TacheProps> {
         <p>Hello, {this.props.name}!</p>
         <input type="checkbox" />
       </div>
-    );
+    )
   }
 }
