@@ -1,11 +1,11 @@
-.conteneur-tache{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-    width: 20rem;
-    height: 2rem;
-    align-items: center;
+.conteneur-tache {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  width: 20rem;
+  height: 2rem;
+  align-items: center;
 }
