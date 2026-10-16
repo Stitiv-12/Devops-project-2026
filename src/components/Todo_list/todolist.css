@@ -1,0 +1,8 @@
+.conteneur-toDoList{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    align-items: center;
+}
