@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component } from 'react'
 import './tache.css'
 import { Tache } from '../../models/tache';
 

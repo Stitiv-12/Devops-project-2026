@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component } from 'react'
 import './todolist.css'
 import { TacheComponent } from '../Tache/tache';
 import type { Tache } from "../../models/tache";
