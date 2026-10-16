@@ -1,9 +1,11 @@
 import { Component } from "react";
 import './todolist.css'
-import { Tache } from '../Tache/tache';
+import { TacheComponent } from '../Tache/tache';
+import type { Tache } from "../../models/tache";
 
 type TodoListProps = {
-  listTaches: string[];
+  listTaches: Tache[];
+  onToggleTache: (index: number) => void;
 };
 
 export class TodoList extends Component<TodoListProps> {
@@ -11,7 +13,7 @@ export class TodoList extends Component<TodoListProps> {
     return (
         <div className="conteneur-toDoList">
             {this.props.listTaches.map((tache, index) => (
-                <Tache key={index} name={tache} />
+                <TacheComponent key={index} tache={tache} onToggle={() => this.props.onToggleTache(index)} />
             ))}
         </div>
     )

@@ -9,3 +9,12 @@
     height: 2rem;
     align-items: center;
 }
+
+.tache_terminee{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.conteneur-tache input{
+    align-self: center;
+}
