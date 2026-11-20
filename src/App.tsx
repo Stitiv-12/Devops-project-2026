@@ -12,6 +12,9 @@ function App() {
 
   const handleAddTache = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
+      if(newTache == ''){
+        return
+      }
       const newTacheObj = new Tache(newTache)
       setTaches([...taches, newTacheObj])
       setNewTache('')
