@@ -16,5 +16,7 @@ jobs:
         run: npm install
       - name: Lancer le linter
         run: npm run lint
+      - name: Lancer le pretier
+        run: npm run format
       - name: Lancer les tests
-        run: npx vitest run
+        run: npm run test
