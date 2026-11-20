@@ -6,7 +6,6 @@ function App() {
   const [taches, setTaches] = useState<Tache[]>([
     new Tache('steven'),
     new Tache('alice'),
-    new Tache('bob'),
   ])
   const [newTache, setNewTache] = useState('')
 
