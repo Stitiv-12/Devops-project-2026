@@ -33,6 +33,7 @@ function App() {
 
   return (
     <div className="App">
+      <h2>Tâches restantes : {taches.filter((tache) => !tache.state).length}</h2>
       <TodoList listTaches={taches} onToggleTache={handleToggleTache} onDeleteTache={handleDeleteTache} />
       <button onClick={() => setTaches([])}>Delete all taches <FaTrash /></button>
       <input
