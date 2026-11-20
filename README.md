@@ -1,3 +1,6 @@
+[![CI](https://github.com/Stitiv-12/Devops-project-2026/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/Stitiv-12/Devops-project-2026/actions/workflows/ci.yml)
+
+# Mon projet
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
