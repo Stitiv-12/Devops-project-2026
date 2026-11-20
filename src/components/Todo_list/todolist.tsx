@@ -6,6 +6,7 @@ import type { Tache } from '../../models/tache'
 type TodoListProps = {
   listTaches: Tache[]
   onToggleTache: (index: number) => void
+  onDeleteTache: (index: number) => void
 }
 
 export class TodoList extends Component<TodoListProps> {
@@ -17,6 +18,7 @@ export class TodoList extends Component<TodoListProps> {
             key={index}
             tache={tache}
             onToggle={() => this.props.onToggleTache(index)}
+            onDeleteTache={() => this.props.onDeleteTache(index)}
           />
         ))}
       </div>

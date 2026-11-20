@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css'
 import { TodoList } from './components/Todo_list/todolist'
 import { Tache } from './models/tache'
+import { FaTrash } from 'react-icons/fa';
 function App() {
   const [taches, setTaches] = useState<Tache[]>([
     new Tache('steven'),
@@ -11,6 +12,9 @@ function App() {
 
   const handleAddTache = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
+      if(newTache == ''){
+        return
+      }
       const newTacheObj = new Tache(newTache)
       setTaches([...taches, newTacheObj])
       setNewTache('')
@@ -23,10 +27,15 @@ function App() {
     )
   }
 
+  const handleDeleteTache = (index: number) => {
+    setTaches(taches.filter((_tache,i) => (i != index)))
+  }
+
   return (
     <div className="App">
       <h2>Tâches restantes : {taches.filter((tache) => !tache.state).length}</h2>
-      <TodoList listTaches={taches} onToggleTache={handleToggleTache} />
+      <TodoList listTaches={taches} onToggleTache={handleToggleTache} onDeleteTache={handleDeleteTache} />
+      <button onClick={() => setTaches([])}>Delete all taches <FaTrash /></button>
       <input
         type="text"
         value={newTache}
