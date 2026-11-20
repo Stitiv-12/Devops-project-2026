@@ -1,76 +1,123 @@
+# Mon projet DevOps 2026
+
 [![CI](https://github.com/Stitiv-12/Devops-project-2026/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/Stitiv-12/Devops-project-2026/actions/workflows/ci.yml)
 
-# Mon projet
-# React + TypeScript + Vite
+## 1. Présentation du projet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Devops-project-2026** est un projet réalisé dans le cadre de mon cours de DevOps. Il consiste à mettre en place une application web avec **React** et **TypeScript**, ainsi que différents outils utilisés dans un projet logiciel :
 
-Currently, two official plugins are available:
+- des tests automatisés avec [Vitest](https://vitest.dev/) ;
+- un linter avec [ESLint](https://eslint.org/) ;
+- un formateur de code avec [Prettier](https://prettier.io/) ;
+- une conteneurisation avec [Docker](https://www.docker.com/) ;
+- une intégration continue avec [GitHub Actions](https://docs.github.com/actions).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+L'application présente une liste de tâches modifiable. Il est possible de :
 
-## React Compiler
+- cocher une tâche comme réalisée ;
+- supprimer une tâche ;
+- supprimer toutes les tâches ;
+- ajouter une nouvelle tâche ;
+- consulter le nombre de tâches restantes.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 2. Technologies utilisées
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/) et [TypeScript](https://www.typescriptlang.org/) ;
+- [Vite](https://vite.dev/) ;
+- [Vitest](https://vitest.dev/) et [Testing Library](https://testing-library.com/) ;
+- [ESLint](https://eslint.org/) et [Prettier](https://prettier.io/) ;
+- [Docker](https://www.docker.com/) ;
+- [GitHub Actions](https://github.com/features/actions).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 3. Installation et utilisation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation locale
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/Stitiv-12/Devops-project-2026.git
+cd Devops-project-2026
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Pour lancer l'application en mode développement :
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Tests, lint et formatage
+
+**Lancer les tests :**
+
+```bash
+npm run test -- --run
+```
+
+**Vérifier le code avec ESLint :**
+
+```bash
+npm run lint
+```
+
+**Formater le code avec Prettier :**
+
+```bash
+npm run format
+```
+
+### Lancement avec Docker
+
+Construire l'image :
+
+```bash
+docker build -t devops-project-2026 .
+```
+
+Lancer le conteneur :
+
+```bash
+docker run --rm -p 8080:80 devops-project-2026
+```
+
+L'application est alors accessible à l'adresse [`http://localhost:8080`](http://localhost:8080).
+
+## 4. Intégration continue
+
+Le workflow [GitHub Actions](.github/workflows/ci.yml) se lance automatiquement lors :
+
+- d'un **push** ;
+- de la création ou de la mise à jour d'une **pull request**.
+
+La CI installe les dépendances, lance ESLint et exécute les tests Vitest. Le badge en haut de cette page indique si le dernier pipeline est réussi ou non.
+
+## 5. Dépôt et auteur
+
+- **Dépôt GitHub :** [Stitiv-12/Devops-project-2026](https://github.com/Stitiv-12/Devops-project-2026)
+- **Réalisé par :** Steven Vaidie
+
+## 6. Captures d'écran
+
+Les captures d'écran suivantes peuvent être ajoutées dans un dossier `docs/` :
+
+- le pipeline vert dans l'onglet **Actions** ;
+- l'application affichant la liste des tâches ;
+- l'application dans un conteneur Docker.
+
+Exemple d'insertion d'une capture :
+
+```markdown
+![Pipeline GitHub Actions réussi](docs/images/ci-success.png)
+```
+
+## 7. Difficultés rencontrées et améliorations
+
+### Difficultés rencontrées
+
+- La prise en main de React a été un peu difficile, car je n'en avais pas utilisé depuis un certain temps. Je suis maintenant plus à l'aise avec ce framework.
+- J'ai rencontré une difficulté avec Vercel, qui ciblait la branche `main` pour la mise en production alors que ma branche principale est `dev`.
+
+### Améliorations possibles
+
+- ajouter une vérification du formatage Prettier dans la CI avec `prettier --check .` ;
+- ajouter des tests pour l'ajout, la suppression et la validation des tâches ;
+- publier automatiquement l'application après la réussite de la CI.
